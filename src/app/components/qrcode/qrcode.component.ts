@@ -26,6 +26,7 @@ export class QrcodeComponent implements OnInit {
     this.validation();
   }
 
+  //Validação do formulário de alterar QR Code
   validation(){
     this.qrcodeForm = this.fb.group({
       value: ['', Validators.required],

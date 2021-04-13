@@ -12,6 +12,7 @@ import { QrcodeService } from 'src/app/services/qrcode.service';
 })
 export class QrcodeViewComponent implements OnInit {
 
+  //Variáveis
   qrcodeView: any;
   qrcode: any;
   qrId: number;
@@ -31,10 +32,12 @@ export class QrcodeViewComponent implements OnInit {
     this.validationEdit();
   }
 
+  //Abre o modal
   openModal(content) {
     this.modalService.open(content, {ariaLabelledBy: 'modal-edit'});
   }
 
+  //Fecha o modal
   closeModal(){
     this.modalService.dismissAll();
   }

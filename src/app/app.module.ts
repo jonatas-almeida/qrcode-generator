@@ -11,13 +11,15 @@ import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { QrcodeViewComponent } from './components/qrcode-view/qrcode-view.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FavoritesComponent } from './components/favorites/favorites.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     QrcodeComponent,
-    QrcodeViewComponent
+    QrcodeViewComponent,
+    FavoritesComponent
   ],
   imports: [
     BrowserModule,
