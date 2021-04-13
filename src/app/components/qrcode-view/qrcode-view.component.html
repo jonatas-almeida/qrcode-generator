@@ -1,0 +1,40 @@
+<div class="qrcode-view-container">
+    <h1 class="page-title">QR Codes salvos</h1>
+    <div class="qrcode-view-content" *ngFor="let view of qrcodeView" routerLink="/home/{{view.id}}">
+        <div class="qrcode-card" (click)="openModal(content)">
+          <div class="qrcode-img">
+            <ngx-qrcode 
+              [elementType]="elementType"
+              [errorCorrectionLevel]="correctionLevel"
+              [value]="view.value"
+              class="qrcode-view-img"></ngx-qrcode>
+          </div>
+            <div class="qrcode-info">
+              <h3>{{view.name}}</h3>
+              <a href="{{view.value}}" target="_blank">{{view.value}}</a>
+              <button class="btn-delete" (click)="deleteQrcode(view.id)">Excluir</button>
+            </div>
+        </div>
+
+        <!--Modal para edição do QR Code-->
+        <ng-template #content let-modal>
+            <div class="modal-header">
+              <h4 class="modal-title" id="modal-edit">Editar QR Code</h4>
+              <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form class="edit-form" [formGroup]="editForm">
+                <label>Digite o novo nome:</label>
+                <input type="text" formControlName="name">
+                <label>Digite a nova URL:</label>
+                <input type="text" formControlName="value">
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn-salvar" (click)="editQrcode(qrcodeView.id)">Salvar alterações</button>
+            </div>
+        </ng-template>
+    </div>
+</div>

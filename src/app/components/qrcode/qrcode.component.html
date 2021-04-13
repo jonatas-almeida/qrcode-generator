@@ -1,0 +1,22 @@
+<div class="qrcode-container">
+    <div class="qrcode-content">
+        <form class="qr-code-form" [formGroup]="qrcodeForm">
+            <input type="text" formControlName="name" placeholder="Dê um nome para o QR Code">
+            
+            <input type="text" formControlName="value" class="qrcode-input" placeholder="Digite a URL aqui (ou copie e cole)" [(ngModel)]="value">
+            
+            <p>Se quiser salvar o QR Code é só clicar no botao abaixo</p>
+            <button class="btn-salvar" (click)="saveQrcode()">Salvar QR Code</button>
+        </form>
+        <div class="qrcode-content">
+            <ngx-qrcode 
+            [elementType]="elementType"
+            [errorCorrectionLevel]="correctionLevel"
+            [value]="value"
+             class="qrcode"></ngx-qrcode>
+        </div>
+    </div>
+    <div class="qrcode-view">
+        <app-qrcode-view></app-qrcode-view>
+    </div>
+</div>
